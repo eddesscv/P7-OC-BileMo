@@ -18,8 +18,8 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  * 
  * @ApiResource(
- *     normalizationContext={"groups"={"user:read"}},
- *     denormalizationContext={"groups"={"user:write"}}
+ *     normalizationContext={"groups"={"client:read"}},
+ *     denormalizationContext={"groups"={"client:write"}}
  * )
  */
 class Client implements UserInterface, PasswordAuthenticatedUserInterface
