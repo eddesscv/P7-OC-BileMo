@@ -33,6 +33,22 @@ Créer la base de données si elle n'existe pas déjà, taper la commande ci-des
 Créez les fixtures vous permettant de tester :
 
     php bin/console doctrine:fixtures:load
+Générer une clé SSH d'authentification JWT (Documentation officiel):
+
+    mkdir -p config/jwt
+    openssl genrsa -out config/jwt/private.pem -aes256 4096
+    openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+    
+    ou
+    
+    php bin/console lexik:jwt:generate-keypair
 Accédez à l'aide de l'API : 127.0.0.1:8000/api (en fonction de l'adresse d'hébergement de l'API)
 
-Se connecter et obtenir un token : Requête GET sur http://127.0.0.1:8000/api/login, body {"username": "clientsfr@client.com", "password": "clientsfr"}
+Se connecter et obtenir un token : 
+    
+    Requête POST sur http://127.0.0.1:8000/api/login
+    Body: 
+    {
+        "username" : "SFR",
+        "password" : "Admin1@"
+    }
