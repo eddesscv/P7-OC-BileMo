@@ -51,40 +51,8 @@ class UserController extends AbstractController
      * @Route("/api/users", name="user_create")
      * @method ({"POST"})
      */
-    /* public function createAction(Request $request, SerializerInterface $serialize)
-    {
-        $data = $request->getContent();
-        $user = $serialize->deserialize($data, 'App\Entity\User', 'json');
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($user);
-        $em->flush();
-
-        return new Response('', Response::HTTP_CREATED);
-    } */
-    /* public function createAction(User $user, UserPasswordEncoderInterface $passwordEncoder)
-    {
-
-
-        $actualUser = $this->getUser();
-        $client = $actualUser->getClient();
-
-        $em = $this->getDoctrine()->getManager();
-
-        $user->setClient($client);
-        $user->setPassword(
-            $passwordEncoder->encodePassword(
-                $user,
-                $user->getPassword()
-            )
-        );
-        $em->persist($user);
-        $em->flush();
-
-        return $user;
-    } */
-
-    public function create(TokenStorageInterface $tokenStorage, Request $request, EntityManagerInterface $manager, SerializerInterface $serializer, ValidatorInterface $validator): JsonResponse
+    public function create(Request $request, EntityManagerInterface $manager, SerializerInterface $serializer, ValidatorInterface $validator): JsonResponse
     {
 
         $user = $serializer->deserialize($request->getContent(), User::class, 'json');
@@ -93,11 +61,8 @@ class UserController extends AbstractController
             $data = $serializer->serialize($errors, 'json');
             return new JsonResponse($data, 400, [], true);
         }
-        // $client = $manager->getRepository(Client::class)->find($request->get('clientId'));
-        // $client = $this->$tokenStorage->getToken()->getClient();
         $client = $this->get('security.token_storage')->getToken()->getUser();
 
-        // $client = $this->container->get('security.token_storage')->getToken()->getClient();
         $client->getId();
         $user->setClient($client);
 
