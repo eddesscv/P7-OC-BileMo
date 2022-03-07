@@ -1,6 +1,6 @@
 # P7-OC-BileMo
 
-[![SymfonyInsight](https://insight.symfony.com/projects/479002c1-63aa-4221-a31f-28e30e012056/big.svg)](https://insight.symfony.com/projects/479002c1-63aa-4221-a31f-28e30e012056/analyses/20)
+[![SymfonyInsight](https://insight.symfony.com/projects/58d88bf9-9db3-4f3e-ab42-eedb384ff658/big.svg)](https://insight.symfony.com/projects/58d88bf9-9db3-4f3e-ab42-eedb384ff658/analyses/6)
 
 Créez un web service exposant une API
 
