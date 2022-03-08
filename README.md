@@ -8,6 +8,7 @@ Créez un web service exposant une API
 - Symfony 5.2.2
 - Composer 2.2.5
 - LexikJWTAuthenticationBundle 2.14
+- ApiPlatform 2.6
 - JMSSerializerBundle 4.0
 - NelmioApiDocBundle 4.8
 - BazingaHateoasBundle
