@@ -57,6 +57,6 @@ Se connecter et obtenir un token :
 Pour tester tes endpoints dans le navigateur avec l'interface de swagger (ApiPlatform):
 Un bouton Authorize va s'afficher sur l'interface.
 Et pour renseigner le token:
-    Il faut toujours saisir Bearer puis coller le token juste après
+    Il faut toujours saisir Bearer puis coller le token juste après:
     
-    ## Bearer yJ0eXAiOiJKV1QiLCJhbGciOiJS....
+    earer yJ0eXAiOiJKV1QiLCJhbGciOiJS....
