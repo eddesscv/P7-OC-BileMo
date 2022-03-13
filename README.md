@@ -53,3 +53,8 @@ Se connecter et obtenir un token :
         "username" : "SFR",
         "password" : "Admin1@"
     }
+    
+Pour tester tes endpoints dans le navigateur avec l'interface de swagger (ApiPlatform):
+Un bouton Authorize va s'afficher sur l'interface.
+Et pour renseigner le token:
+    Il faut toujours saisir Bearer puis coller le token juste après.
