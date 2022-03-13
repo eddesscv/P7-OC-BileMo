@@ -27,11 +27,6 @@ class PhoneController extends AbstractController
      */
     public function showAction(SerializerInterface $serialize, Phone $phone)
     {
-        //Plutôt que d'aller voir directement en base de données, je vous propose de mettre à jour le code de notre première action pour aller chercher un article en fonction de l'id passé dans l'URL plutôt que de toujours retourner un article factice.
-        /* $phone = new Phone();
-        $phone
-            ->setTitle('Mon premier phone')
-            ->setDescription('La description de bom produit.'); */
 
         $data = $serialize->serialize($phone, 'json');
 
