@@ -60,7 +60,6 @@ class PhoneController extends AbstractController
     public function listAction(SerializerInterface $serialize)
     {
         $phones = $this->getDoctrine()->getRepository('App:Phone')->findAll();
-        /* $data = $this->get('jms_serializer')->serialize($phones, 'json'); */
         $data = $serialize->serialize($phones, 'json');
 
         $response = new Response($data);
