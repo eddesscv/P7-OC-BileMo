@@ -29,40 +29,37 @@ class User
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * 
-     * @Groups("user:read")
+     * @Groups("user:read", "client:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * 
-     * @Groups({"user:read", "user:write"})
+     * @Groups({"user:read", "user:write","client:read"})
+     * 
+     * @Assert\Email(message = "L'e-mail '{{ value }}' n'est pas un e-mail valide.")
      */
     private $email;
-
-    /**
-     * @ORM\Column(type="json")
-     * 
-     * @Groups("user:read")
-     */
-    private $roles = [];
 
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"user:read", "user:write"})
+     * @Groups({"user:read", "user:write", "client:read"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Groups({"user:read", "user:write"})
+     * @Groups({"user:read", "user:write","client:read"})
      */
-    private $fullName;
+    private $full_name;
 
     /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="users")
+     * 
+     * @Groups("user:read")
      */
     private $client;
 
@@ -83,19 +80,7 @@ class User
         return $this;
     }
 
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUserIdentifier(): string
-    {
-        return (string) $this->username;
-    }
 
-    /**
-     * @deprecated since Symfony 5.3, use getUserIdentifier instead
-     */
     public function getUsername(): string
     {
         return (string) $this->username;
@@ -108,34 +93,15 @@ class User
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
 
-        return array_unique($roles);
+    public function getfull_name(): ?string
+    {
+        return $this->full_name;
     }
 
-    public function setRoles(array $roles): self
+    public function setfull_name(string $full_name): self
     {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-
-    public function getFullName(): ?string
-    {
-        return $this->fullName;
-    }
-
-    public function setFullName(string $fullName): self
-    {
-        $this->fullName = $fullName;
+        $this->full_name = $full_name;
 
         return $this;
     }

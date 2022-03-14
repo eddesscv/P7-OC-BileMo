@@ -21,6 +21,8 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  *     normalizationContext={"groups"={"client:read"}},
  *     denormalizationContext={"groups"={"client:write"}}
  * )
+ * @UniqueEntity("email")
+ * @UniqueEntity("username")
  */
 class Client implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -63,6 +65,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      * 
      * @Groups({"client:read", "client:write"})
+     * @Assert\Email(message = "L'e-mail '{{ value }}' n'est pas un e-mail valide.")
      */
     private $email;
 
@@ -74,7 +77,9 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=User::class, mappedBy="client")
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="client", orphanRemoval=true)
+     * 
+     * @Groups("client:read")
      */
     private $users;
 

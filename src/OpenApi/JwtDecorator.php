@@ -63,7 +63,9 @@ final class JwtDecorator implements OpenApiFactoryInterface
                         ],
                     ],
                 ]
-            ]
+            ],
+            '400' => ['description' => 'Bad request - Invalid JSON'],
+            '401' => ['description' => 'Bad credentials'],
         ];
 
         $content = new \ArrayObject([
@@ -75,7 +77,7 @@ final class JwtDecorator implements OpenApiFactoryInterface
         ]);
 
         $requestBody = new Model\RequestBody('Generate new JWT Token', $content);
-        $post = new Model\Operation('postCredentialsItem', ['LOGIN'], $responses, 'Get JWT token to login.', '', new Model\ExternalDocumentation, [], $requestBody);
+        $post = new Model\Operation('postCredentialsItem', ['Authentication'], $responses, 'Get JWT token to login.', '', new Model\ExternalDocumentation, [], $requestBody);
         $pathItem = new Model\PathItem('JWT Token', null, null, null, null, $post);
 
         $openApi->getPaths()->addPath('/api/login', $pathItem);
