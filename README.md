@@ -1,6 +1,6 @@
 # P7-OC-BileMo
 
-[![SymfonyInsight](https://insight.symfony.com/projects/58d88bf9-9db3-4f3e-ab42-eedb384ff658/big.svg)](https://insight.symfony.com/projects/58d88bf9-9db3-4f3e-ab42-eedb384ff658/analyses/6)
+[![SymfonyInsight](https://insight.symfony.com/projects/58d88bf9-9db3-4f3e-ab42-eedb384ff658/big.svg)](https://insight.symfony.com/projects/58d88bf9-9db3-4f3e-ab42-eedb384ff658/analyses/25)
 
 Créez un web service exposant une API
 
@@ -53,3 +53,10 @@ Se connecter et obtenir un token :
         "username" : "SFR",
         "password" : "Admin1@"
     }
+    
+Pour tester tes endpoints dans le navigateur avec l'interface de swagger (ApiPlatform):
+Un bouton Authorize va s'afficher sur l'interface.
+Et pour renseigner le token:
+    Il faut toujours saisir Bearer puis coller le token juste après:
+    
+    Bearer yJ0eXAiOiJKV1QiLCJhbGciOiJS....
