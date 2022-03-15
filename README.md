@@ -11,7 +11,6 @@ Créez un web service exposant une API
 - ApiPlatform 2.6
 - JMSSerializerBundle 4.0
 - NelmioApiDocBundle 4.8
-- BazingaHateoasBundle
 - WampServer 3.1.6
     - Apache 2.4.51
     - PHP 7.4.26
