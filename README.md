@@ -33,7 +33,7 @@ Créer la base de données si elle n'existe pas déjà, taper la commande ci-des
 Créez les fixtures vous permettant de tester :
 
     php bin/console doctrine:fixtures:load
-Générer une clé SSH d'authentification JWT (Documentation officiel):
+Générer une clé SSH d'authentification JWT ([Documentation officiel](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/2.x/Resources/doc/index.md#installation)):
 
     mkdir -p config/jwt
     openssl genrsa -out config/jwt/private.pem -aes256 4096
