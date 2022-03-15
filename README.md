@@ -42,6 +42,9 @@ Générer une clé SSH d'authentification JWT ([Documentation officiel](https://
     ou
     
     php bin/console lexik:jwt:generate-keypair
+Pour lancer le projet :
+
+    symfony server:start
 Accédez à l'aide de l'API : 127.0.0.1:8000/api (en fonction de l'adresse d'hébergement de l'API)
 
 Se connecter et obtenir un token : 
