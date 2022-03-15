@@ -73,6 +73,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * 
      * @Groups({"client:read", "client:write"})
+     * @Assert\NotBlank
      */
     private $name;
 

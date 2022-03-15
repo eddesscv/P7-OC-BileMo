@@ -53,6 +53,7 @@ class User
      * @ORM\Column(type="string", length=255)
      * 
      * @Groups({"user:read", "user:write","client:read"})
+     * @Assert\NotBlank
      */
     private $fullname;
 
