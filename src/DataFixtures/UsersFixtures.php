@@ -51,7 +51,7 @@ class UsersFixtures extends Fixture
             $user = new User();
             $user->setUsername($data['username']);
             $user->setEmail($data['email']);
-            $user->setFull_name($data['full_name']);
+            $user->setFullname($data['full_name']);
             $user->setClient($this->getReference(ClientsFixtures::CLIENT_SFR));
             /* $data->setRoles(array('ROLE_USER')); */
             $manager->persist($user);

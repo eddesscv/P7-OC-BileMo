@@ -22,34 +22,11 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class UserController extends AbstractController
 {
-    /**
-     * @Route("/user", name="user")
-     */
-    public function index(): Response
-    {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
-    }
+
 
     /**
-     * @Route("/users/{id}", name="user_show")
-     */
-    public function showAction(SerializerInterface $serialize, User $user)
-    {
-
-        $data = $serialize->serialize($user, 'json');
-
-
-        $response = new Response($data);
-        $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
-    }
-
-    /**
-     * @Route("/api/users", name="user_create")
-     * @method ({"POST"})
+     * @Route("/api/users", name="user_create", methods = {"POST"})
+     * 
      */
 
     public function create(Request $request, EntityManagerInterface $manager, SerializerInterface $serializer, ValidatorInterface $validator): JsonResponse
@@ -70,21 +47,5 @@ class UserController extends AbstractController
         $manager->flush();
         $data = $serializer->serialize($user, 'json', SerializationContext::create()->setGroups(array('Default')));
         return new JsonResponse($data, Response::HTTP_CREATED, [], true);
-    }
-
-
-    /**
-     * @Route("/api/usersz", name="user_list")
-     * @method ({"GET"})
-     */
-    public function listAction(SerializerInterface $serialize)
-    {
-        $users = $this->getDoctrine()->getRepository('App:User')->findAll();
-        $data = $serialize->serialize($users, 'json');
-
-        $response = new Response($data);
-        $response->headers->set('Content-Type', 'application/json');
-
-        return $response;
     }
 }
