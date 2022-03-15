@@ -54,7 +54,7 @@ class User
      * 
      * @Groups({"user:read", "user:write","client:read"})
      */
-    private $full_name;
+    private $fullname;
 
     /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="users")
@@ -94,14 +94,14 @@ class User
     }
 
 
-    public function getfull_name(): ?string
+    public function getFullname(): ?string
     {
-        return $this->full_name;
+        return $this->fullname;
     }
 
-    public function setfull_name(string $full_name): self
+    public function setFullname(string $fullname): self
     {
-        $this->full_name = $full_name;
+        $this->fullname = $fullname;
 
         return $this;
     }

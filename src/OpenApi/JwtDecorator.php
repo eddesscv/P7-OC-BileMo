@@ -44,13 +44,6 @@ final class JwtDecorator implements OpenApiFactoryInterface
                     'example' => 'password',
                 ],
             ],
-            /* 'headers' => [
-                'username' => [
-                    'type' => 'string',
-                    'in' => 'header',
-                    'example' => 'john.doe',
-                ],
-            ], */
         ]);
 
         $responses = [
